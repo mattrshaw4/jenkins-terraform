@@ -147,7 +147,7 @@ Running with Java 17... which is older than the minimum required version (Java 2
 Supported Java versions are: [21, 25]
 ```
 
-**Why it mattered:** Jenkins updated its minimum Java requirement between when the project was written and when it was deployed. `java-17-amazon-corretto` installed fine — it just wasn't accepted by the current Jenkins version.
+**Why it mattered:** Jenkins updated its minimum Java requirement between when the project was written and when it was deployed. `java-17-amazon-corretto` installed fine it just wasn't accepted by the current Jenkins version.
 
 **Fix:** Updated `user_data` to install `java-21-amazon-corretto`.
 
@@ -165,7 +165,7 @@ line 11: wget: command not found
 
 **Fix:** Replaced `wget` with `curl -o`, which ships with AL2023.
 
-**Lesson:** Don't assume tool availability across distributions. AL2023 is a clean-room OS — it ships with less than AL2 by design.
+**Lesson:** Don't assume tool availability across distributions. AL2023 is a clean-room OS that ships with less than AL2 by design.
 
 ---
 
@@ -175,7 +175,7 @@ line 11: wget: command not found
 
 **Fix:** Moved `rpm --import` to run *before* the `curl` that writes the repo file.
 
-**Lesson:** Order matters in bootstrap scripts. When dnf loads a repo with `gpgcheck=1`, it validates the key immediately — not lazily at install time.
+**Lesson:** Order matters in bootstrap scripts. When dnf loads a repo with `gpgcheck=1`, it validates the key immediately not at install time.
 
 ---
 
@@ -207,7 +207,7 @@ Jenkins had rotated their package signing key. The key in the repo pointed to `j
 
 **Fix:** Set `gpgcheck=0` in the repo file for this foundational project. In production, the correct approach is to identify the current verified signing key from the [official Jenkins Linux installation docs](https://www.jenkins.io/doc/book/installing/linux/) and pin it explicitly.
 
-**Lesson:** GPG key rotation is a real operational concern. Production Jenkins deployments should pin a specific verified key and have a process for key rotation — not disable checking entirely.
+**Lesson:** GPG key rotation is a real operational concern. Production Jenkins deployments should pin a specific verified key and have a process for key rotation, not disable checking entirely.
 
 ---
 
