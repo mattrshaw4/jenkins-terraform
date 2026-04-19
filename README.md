@@ -6,7 +6,7 @@ A foundational Infrastructure as Code project that provisions a Jenkins CI/CD se
 
 ## Project Overview
 
-This project deploys a Jenkins server on AWS EC2 using Terraform to manage and version control the infrastructure. Using Terraform means the environment is reproducible, trackable, and can be deployed consistently across multiple environments — no clicking around the console hoping you remembered every setting.
+This project deploys a Jenkins server on AWS EC2 using Terraform to manage and version control the infrastructure. Using Terraform means the environment is reproducible, trackable, and can be deployed consistently across multiple environments with no clicking around the console hoping you remembered every setting.
 
 **All infrastructure is defined in a single `main.tf` file (monolith pattern), which is acceptable for foundational projects before modularization becomes necessary.**
 
